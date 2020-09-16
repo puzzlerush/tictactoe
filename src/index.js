@@ -73,6 +73,7 @@ function Board(props) {
   
   function reset() {
     setSquares(defaultSquares);
+    setXToMove(true);
   }
   
   function drawSquare(i) {
