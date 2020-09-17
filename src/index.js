@@ -17,7 +17,7 @@ function getWinner(squares) {
   
   for (let i = 0; i < winConditions.length; i++) {
     const [x, y, z] = winConditions[i];
-    if (squares[x] == squares[y] && squares[y] == squares[z]) {
+    if (squares[x] && squares[x] == squares[y] && squares[y] == squares[z]) {
       return squares[x];
     }
   }
@@ -46,7 +46,7 @@ function Square(props) {
   return (
     <button 
       className="square btn btn-secondary" 
-      onClick={() => props.onClick()}
+      onClick={props.onClick}
     >
       <span style={{fontSize: "3vmin"}}>{props.value}</span>
     </button>
@@ -115,7 +115,7 @@ function Board(props) {
         {drawSquare(7)}
         {drawSquare(8)}
       </div>
-      <ResetBoard onClick={() => reset()}/>
+      <ResetBoard onClick={reset}/>
     </div>
   );
 }
